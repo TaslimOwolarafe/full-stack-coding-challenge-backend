@@ -14,11 +14,19 @@ export class SeaportResolver {
 
   @Query()
   getSeaport(@Args({ name: 'id', type: () => Int }) id: number) {
-    return this.appService.findSeaportById(id);
+    const seaport = this.appService.findSeaportById(id);
+    if (!seaport) {
+      return null;
+    }
+    return seaport;
   }
 
   @ResolveField()
   location(@Parent() seaport: { id: number }) {
-    return this.appService.findLocationForPort(seaport.id);
+    const location = this.appService.findLocationForPort(seaport.id);
+    if (!location) {
+      return { "city": "Unknown", "countryAlpha2": "??"};
+    }
+    return location;
   }
 }
