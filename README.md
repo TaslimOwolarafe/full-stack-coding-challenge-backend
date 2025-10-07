@@ -25,13 +25,13 @@ Created Prisma schema and migrations. Seeded the SQLite database from frontend/d
 
 - Prisma ORM
 
-- SQLite (for simplicity and portability)
+- PostgreSQL
 
 - TypeScript
 
 ### Setup & Running the Application
 
-Note: SQLite was used for this submission for easy local setup.
+Note: SQLite was initially used for this submission for easy local setup. I have edited the prisma setuo to use posgresql to match requirements.
 
 ## Installation & Running
 
@@ -46,7 +46,7 @@ yarn install
 Create a .env file in the backend folder:
 
 ```bash  
-DATABASE_URL="file:./dev.db"
+DATABASE_URL="postgres://<user>:<password>@HOST:PORT/<db_name>?sslmode=require"
 ```
 
 - Run database migrations
